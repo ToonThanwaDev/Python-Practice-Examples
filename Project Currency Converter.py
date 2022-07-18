@@ -7,23 +7,23 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-root.title('โปรแกรมแปลงสกุลเงิน')
+root.title('Currency Converter')
 root.geometry('500x500')
 
 # Input
 money = IntVar()
-Label(text = 'จำนวนเงิน (TH)', padx = 10, font = 30).grid(row = 0, sticky = W)
+Label(text = 'Amount (TH)', padx = 10, font = 30).grid(row = 0, sticky = W)
 et1 = Entry(font = 30, width = 30, textvariable = money)
 et1.grid(row = 0, column = 1)
 
-choice = StringVar(value = 'โปรดเลือกสกุลเงิน')
-Label(text = 'เลือกสกุลเงิน', padx = 10, font = 30).grid(row = 1, sticky = W)
+choice = StringVar(value = 'Choose your currency')
+Label(text = 'Choose currency', padx = 10, font = 30).grid(row = 1, sticky = W)
 combo = ttk.Combobox(width = 30, font = 30, textvariable = choice)
 combo['values'] = ('USD', 'JPY', 'EUR', 'GBP')
 combo.grid(row = 1, column = 1)
 
 # Output
-Label(text = 'ผลการคำนวณ', padx = 10, font = 30).grid(row = 2, sticky = W)
+Label(text = 'Result', padx = 10, font = 30).grid(row = 2, sticky = W)
 et2 = Entry(font = 30, width = 30)
 et2.grid(row = 2, column = 1)
 
@@ -49,15 +49,15 @@ def calculate():
         et2.insert(0, result)
     else:
         et2.delete(0, END)
-        result = 'ไม่พบข้อมูล'
+        result = 'Not Found'
         et2.insert(0, result)
 
 def deleteText():
     et1.delete(0, END)
     et2.delete(0, END)
 
-Button(text = 'คำนวณ', font = 30, width = 15, command = calculate).grid(row = 3, column = 1, sticky = W)
-Button(text = 'ล้าง', font = 30, width = 15, command = deleteText).grid(row = 3, column = 1, sticky = E)
+Button(text = 'Calculate', font = 30, width = 15, command = calculate).grid(row = 3, column = 1, sticky = W)
+Button(text = 'Clear', font = 30, width = 15, command = deleteText).grid(row = 3, column = 1, sticky = E)
 
 
 root.mainloop()
