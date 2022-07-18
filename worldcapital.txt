@@ -1,0 +1,5 @@
+Thailand/Bangkok
+USA/NewYork
+UK/London
+Korea/Seoul
+Japan/Tokyo
